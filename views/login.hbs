@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>{{titulo}}</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <main class="container pequeno">
+        <section class="card">
+            <h1>MicroBlog</h1>
+            <p class="subtitulo">Entre para visualizar, publicar e comentar postagens.</p>
+
+            {{#if erro}}
+                <p class="mensagem erro">{{erro}}</p>
+            {{/if}}
+
+            {{#if sucesso}}
+                <p class="mensagem sucesso">{{sucesso}}</p>
+            {{/if}}
+
+            <form method="POST" action="/login">
+                <label for="email">E-mail</label>
+                <input type="email" id="email" name="email" value="{{email}}" placeholder="Digite seu e-mail">
+
+                <label for="senha">Senha</label>
+                <input type="password" id="senha" name="senha" placeholder="Digite sua senha">
+
+                <button type="submit">Entrar</button>
+            </form>
+
+            <p class="link-texto">Ainda não possui conta? <a href="/users/new">Criar conta</a></p>
+        </section>
+    </main>
+</body>
+</html>

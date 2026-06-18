@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>{{titulo}}</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <header class="topo">
+        <div>
+            <h1>MicroBlog</h1>
+            <p>Comentários da postagem</p>
+        </div>
+        <nav>
+            <a href="/posts">Postagens</a>
+            <a href="/users">Usuários</a>
+            <a href="/logout">Sair</a>
+        </nav>
+    </header>
+
+    <main class="container">
+        {{#if erro}}
+            <p class="mensagem erro">{{erro}}</p>
+        {{/if}}
+
+        {{#if sucesso}}
+            <p class="mensagem sucesso">{{sucesso}}</p>
+        {{/if}}
+
+        <section class="card post-destaque">
+            <div class="meta">
+                <strong>{{post.autor}}</strong>
+                <span>{{post.dataFormatada}}</span>
+            </div>
+            <p>{{post.conteudo}}</p>
+        </section>
+
+        <section class="card">
+            <h2>Novo comentário</h2>
+            <form method="POST" action="/comments/create">
+                <input type="hidden" name="id_post" value="{{post.id}}">
+                <label for="conteudo">Comentário</label>
+                <textarea id="conteudo" name="conteudo" rows="3" placeholder="Escreva seu comentário"></textarea>
+                <button type="submit">Comentar</button>
+            </form>
+        </section>
+
+        <section class="lista">
+            <h2>Comentários</h2>
+
+            {{#each comentarios}}
+                <article class="card comentario">
+                    <div class="meta">
+                        <strong>{{autor}}</strong>
+                        <span>{{dataFormatada}}</span>
+                    </div>
+                    <p>{{conteudo}}</p>
+
+                    {{#if pertenceUsuario}}
+                        <form method="POST" action="/comments/delete/{{id}}" class="form-inline">
+                            <input type="hidden" name="id_post" value="{{id_post}}">
+                            <button type="submit" class="perigo">Excluir comentário</button>
+                        </form>
+                    {{/if}}
+                </article>
+            {{/each}}
+
+            {{#unless comentarios}}
+                <p class="vazio">Nenhum comentário encontrado.</p>
+            {{/unless}}
+        </section>
+    </main>
+</body>
+</html>

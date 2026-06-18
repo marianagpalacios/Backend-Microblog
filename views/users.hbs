@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>{{titulo}}</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <header class="topo">
+        <div>
+            <h1>MicroBlog</h1>
+            <p>Usuários cadastrados</p>
+        </div>
+        <nav>
+            <a href="/posts">Postagens</a>
+            <a href="/users">Usuários</a>
+            <a href="/logout">Sair</a>
+        </nav>
+    </header>
+
+    <main class="container">
+        <section class="lista">
+            {{#each usuarios}}
+                <article class="card usuario-card">
+                    <strong>{{nome}}</strong>
+                    <span>{{email}}</span>
+                    <small>Cadastrado em: {{dataFormatada}}</small>
+                </article>
+            {{/each}}
+
+            {{#unless usuarios}}
+                <p class="vazio">Nenhum usuário cadastrado.</p>
+            {{/unless}}
+        </section>
+    </main>
+</body>
+</html>
