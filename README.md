@@ -1,4 +1,4 @@
-# Projeto 2 - MicroBlog com Express.js e MongoDB
+# Projeto - MicroBlog com Express.js e MongoDB
 
 Nome do projeto: **MicroBlog**  
 Tema: **micro-blogging**
