@@ -8,7 +8,7 @@ Este projeto foi desenvolvido a partir do Projeto 1, mantendo as classes `User`,
 ## Requisitos atendidos
 
 - Aplicação web com Express.js.
-- Reaproveitamento das classes do Projeto 1 (`User`, `Post` e `Comment`).
+- Reaproveitamento das classes de um Projeto 1 prévio que não utilizava Express.js e MongoDB (`User`, `Post` e `Comment`).
 - Rotas para usuários, postagens e comentários.
 - Recebimento de parâmetros via **GET** e **POST**.
 - Validação de campos obrigatórios.
